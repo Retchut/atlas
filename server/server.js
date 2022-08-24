@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use('/storage', express.static('storage'))
 
 // mongoose
 mongoose.connect(process.env.DBURL, { useNewUrlParser: true });

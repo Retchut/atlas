@@ -1,1 +1,10 @@
 GET http://localhost:9000/atlas/
+###
+POST http://localhost:9000/atlas/
+Content-Type: application/json
+
+{
+    "name" : "test2",
+    "description" : "testDescription2",
+    "imageHash" : "000"
+}

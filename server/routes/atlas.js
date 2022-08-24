@@ -7,7 +7,8 @@ const Pathology = require('../models/pathology');
 router.get('/', async (req, res) => {
     try {
         const paths = await Pathology.find();
-        res.json(paths);
+        console.log(paths);
+        res.status(200).json(paths);
     }
     catch (err) {
         res.status(500).json({ message : err.message })
@@ -15,8 +16,20 @@ router.get('/', async (req, res) => {
 });
 
 // GET one
-router.post('/:id', function(req, res) {
-    res.json({ message : 'GET one' });
+router.post('/', async (req, res) => {
+    const pathology = new Pathology({
+        name : req.body.name,
+        description : req.body.description,
+        imageHash : req.body.imageHash
+    });
+
+    try {
+        const newPathology = await pathology.save();
+        res.status(201).json(newPathology);
+    }
+    catch (err) {
+        res.status(400).json({ message : err.message });
+    }
 });
 
 // PUT
