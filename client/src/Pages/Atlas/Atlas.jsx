@@ -15,7 +15,7 @@ function Atlas(){
                 <div className="grid grid-cols-5 gap-2 w-2/3 h-screen3/4">
                     <div className="col-span-1 bg-theme2-blue-light rounded-lg">
                         <p>thumbnails</p>:
-                        {state.apiResponse.map((pathology) => (<img src={"http://localhost:9000/storage/" + pathology.imageHash}></img>))}
+                        {state.apiResponse.map((pathology) => (<img src={process.env.REACT_APP_SERVER_STORAGE_DIR + pathology.imageHash}></img>))}
                     </div>
                     <div className="col-span-4 bg-theme2-blue-light rounded-lg">
                         <p>All the pathologies in the database:</p>
