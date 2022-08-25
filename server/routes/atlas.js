@@ -7,7 +7,6 @@ const Pathology = require('../models/pathology');
 router.get('/', async (req, res) => {
     try {
         const paths = await Pathology.find();
-        console.log(paths);
         res.status(200).json(paths);
     }
     catch (err) {
