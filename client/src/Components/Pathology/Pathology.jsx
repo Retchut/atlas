@@ -1,14 +1,18 @@
+import React from 'react';
+
 function Pathology(props){
     const { pathologyData } = props;
     return (
-        <div>
-            <h1>{pathologyData.name}</h1>
-            <p>{pathologyData.description}</p>
-            <img
-                className="m-2"
-                src={process.env.REACT_APP_SERVER_STORAGE_DIR + pathologyData.imageHash}
-                alt={pathologyData.name + '-thumb'}
-            ></img>
+        <div className="m-5 text-center">
+            <h1 className="text-5xl">{pathologyData.name}</h1>
+            <div className="flex justify-center">
+                <img
+                    className="mt-4 mb-3"
+                    src={process.env.REACT_APP_SERVER_STORAGE_DIR + pathologyData.imageHash}
+                    alt={pathologyData.name + '-thumb'}
+                ></img>
+            </div>
+            <p className="break-words">{pathologyData.description}</p>
         </div>
     );
 }
