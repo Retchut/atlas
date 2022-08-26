@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './Atlas.css';
 
 function Atlas(){
     const [state, setState] = useState({ apiResponse : [], currentPathologyID : null });
@@ -44,13 +43,13 @@ function Atlas(){
     return(
         <div className="atlas-page">
             <div className="h-screen w-screen flex justify-center items-center">
-                <div className="grid grid-cols-7 gap-2 w-2/3 h-screen3/4">
+                <div className="gap-2 w-2/3 h-screen3/4 auto-cols-max flex">
                     {/* pathology selector */}
-                    <div className="col-span-1 bg-theme2-blue-light rounded-lg overflow-auto flex justify-center">
+                    <div className="bg-theme2-blue-light rounded-lg overflow-auto min-w-max w-fit flex justify-center">
                         <div className="">
                             {state.apiResponse.map((pathology, index) => (
                                 <img
-                                    className="m-2 rounded-lg cursor-pointer"
+                                    className="m-4 rounded-lg cursor-pointer"
                                     src={process.env.REACT_APP_SERVER_STORAGE_DIR + pathology.imageHash}
                                     alt={pathology.name + '-thumb'}
                                     onClick={() => handlePathologyClick(pathology._id)}
@@ -60,7 +59,7 @@ function Atlas(){
                         </div>
                     </div>
                     {/* pathology showcase */}
-                    <div className="col-span-6 bg-theme2-blue-light rounded-lg overflow-auto">
+                    <div className="bg-theme2-blue-light rounded-lg overflow-auto grow"> {/*min-w-max*/}
                         {displayPathology()}
                     </div>
                 </div>
