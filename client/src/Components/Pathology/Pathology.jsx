@@ -3,7 +3,7 @@ import React from 'react';
 function Pathology(props){
     const { pathologyData } = props;
     return (
-        <div className="m-5 text-center">
+        <div className="m-5 text-center break-words">
             <h1 className="text-5xl">{pathologyData.name}</h1>
             <div className="flex justify-center">
                 <img
@@ -12,7 +12,7 @@ function Pathology(props){
                     alt={pathologyData.name + '-thumb'}
                 ></img>
             </div>
-            <p className="break-words">{pathologyData.description}</p>
+            <p>{pathologyData.description}</p>
         </div>
     );
 }
