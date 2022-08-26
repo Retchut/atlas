@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Pathology from '../../Components/Pathology/Pathology.jsx';
-import './Atlas.css';
 
 function Atlas(){
     const [state, setState] = useState({ apiResponse : [], currentPathologyID : null });
