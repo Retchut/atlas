@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Pathology from '../../Components/Pathology/Pathology.jsx'
 
 function Atlas(){
     const [state, setState] = useState({ apiResponse : [], currentPathologyID : null });
@@ -26,17 +27,7 @@ function Atlas(){
             return (<h1>Error fetching pathology.</h1>);
         }
         else{
-            return (
-                <div>
-                    <p>{pathology.name}</p>
-                    <p>{pathology.description}</p>
-                    <img
-                        className="m-2 rounded-lg"
-                        src={process.env.REACT_APP_SERVER_STORAGE_DIR + pathology.imageHash}
-                        alt={pathology.name + '-thumb'}
-                    ></img>
-                </div>
-            );
+            return <Pathology pathologyData={pathology}></Pathology>;
         }
     }
 
