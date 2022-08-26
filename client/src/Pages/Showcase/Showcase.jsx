@@ -33,7 +33,7 @@ function Showcase(){
 
     return(
         <div className="h-screen w-screen flex justify-center items-center">
-            <div className="gap-2 w-2/3 h-screen3/4 auto-cols-max flex">
+            <div className="gap-2 w-2/3 h-screen3/4 flex">
                 {/* pathology selector */}
                 <div className="atlas-section min-w-max w-fit flex justify-center">
                     <div>
