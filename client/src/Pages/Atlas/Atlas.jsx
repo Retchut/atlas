@@ -27,7 +27,7 @@ function Atlas(){
             return (<h1>Error fetching pathology.</h1>);
         }
         else{
-            return <Pathology pathologyData={pathology}></Pathology>;
+            return (<Pathology pathologyData={pathology}></Pathology>);
         }
     }
 
@@ -40,7 +40,7 @@ function Atlas(){
                         <div className="">
                             {state.apiResponse.map((pathology, index) => (
                                 <img
-                                    className="m-4 rounded-lg cursor-pointer"
+                                    className="max-w-pathology-thumbnail m-4 rounded-lg cursor-pointer"
                                     src={process.env.REACT_APP_SERVER_STORAGE_DIR + pathology.imageHash}
                                     alt={pathology.name + '-thumb'}
                                     onClick={() => handlePathologyClick(pathology._id)}
