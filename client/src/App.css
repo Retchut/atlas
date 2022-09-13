@@ -3,5 +3,5 @@ body {
 }
 
 .atlas-section {
-    @apply bg-theme2-blue-light rounded-lg overflow-auto
+    @apply bg-theme2-blue-light rounded-lg overflow-auto border-2 border-black
 }

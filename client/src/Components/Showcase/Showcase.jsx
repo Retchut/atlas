@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Pathology from '../../Components/Pathology/Pathology.jsx';
+import Pathology from '../Pathology/Pathology.jsx';
 
 function Showcase(){
     const [state, setState] = useState({ apiResponse : [], currentPathologyID : null });

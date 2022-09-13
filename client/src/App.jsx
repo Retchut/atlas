@@ -5,7 +5,6 @@ import {
 } from "react-router-dom";
 
 import './App.css';
-import Showcase from './Pages/Showcase/Showcase.jsx';
 import Atlas from './Pages/Atlas/Atlas.jsx';
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
     <>
       <Routes>
         <Route path="/" exact element={<Atlas/>} />
-        <Route path="/showcase" exact element={<Showcase />} />
       </Routes>
     </>
   );
