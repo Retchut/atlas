@@ -2,36 +2,35 @@ import React, { useState } from "react";
 import Showcase from '../../Components/Showcase/Showcase.jsx';
 
 function Atlas() {
-    const tabs = {
-        "Alterações Celulares" : [ "AltCelTab", "AltCelTab", "AltCelTab" ],
-        "Alterações Metabólicas" : [ "AltMetTab", "AltMetTab", "AltMetTab", "AltMetTab" ],
-        "Alterações de Crescimento" : [ "AltCrescTab", "AltCrescTab", "AltCrescTab", "AltCrescTab", "AltCrescTab" ],
-        "Necroses" : [ "NecTab", "NecTab", "NecTab", "NecTab", "NecTab", "NecTab", "NecTab", "NecTab", "NecTab", "NecTab" ],
-        "Inflamação Aguda" : [ "InfAgTab", "InfAgTab" ],
-        "Inflamação Crónica" : [ "InfCronTab", "InfCronTab", "InfCronTab" ],
-        "Regeneração e Reparação" : [ "RegRepTab", "RegRepTab", "RegRepTab" ],
-        "Neoplasias" : [ "NeopTab", "NeopTab", "NeopTab", "NeopTab", "NeopTab", "NeopTab", "NeopTab", "NeopTab", "NeopTab", "NeopTab", "NeopTab", "NeopTab", "NeopTab", "NeopTab", "NeopTab" ]
+    const categories = {
+        "Alterações Celulares" : [ "AltCelCategory1", "AltCelCategory2", "AltCelCategory3" ],
+        "Alterações Mecategoryólicas" : [ "AltMetCategory1", "AltMetCategory2", "AltMetCategory3", "AltMetCategory4" ],
+        "Alterações de Crescimento" : [ "AltCrescTa1", "AltCrescCategory2", "AltCrescCategory3", "AltCrescCategory4", "AltCrescCategory5" ],
+        "Necroses" : [ "NecCategory1", "NecCategory2", "NecCategory3", "NecCategory4", "NecCategory5", "NecCategory6", "NecCategory7", "NecCategory8", "NecCategory9", "NecCategory10" ],
+        "Inflamação Aguda" : [ "InfAgCategory1", "InfAgCategory2" ],
+        "Inflamação Crónica" : [ "InfCronCategory1", "InfCronCategory2", "InfCronCategory3" ],
+        "Regeneração e Reparação" : [ "RegRepCategory1", "RegRepCategory2", "RegRepCategory3" ],
+        "Neoplasias" : [ "NeopCategory1", "NeopCategory2", "NeopCategory3", "NeopCategory4", "NeopCategory5", "NeopCategory6", "NeopCategory7", "NeopCategory8", "NeopCategory9", "NeopCategory10", "NeopCategory11", "NeopCategory12", "NeopCategory13", "NeopCategory14", "NeopCategory15" ]
     };
 
-    const tabKeys = Object.keys(tabs);
-    // const tabCols = Math.floor(tabs/2)
-    const tabCols = 4;
+    const categoryKeys = Object.keys(categories);
+    const categoryCols = 4;
 
-    const [ tab, setTab ]  = useState("");
-    const [ subTab, setSubtab ] = useState("");
-    const changeTab = event => (tab === event.currentTarget.name) ? (setTab(""), setSubtab("")) : setTab(event.currentTarget.name);
-    const changeSubTab = event => (subTab === event.currentTarget.name) ? setSubtab("") : setSubtab(event.currentTarget.name);
+    const [ category, setCategory ]  = useState("");
+    const [ subCategory, setSubcategory ] = useState("");
+    const changeCategory = event => (category === event.currentTarget.name) ? (setCategory(""), setSubcategory("")) : (setCategory(event.currentTarget.name), setSubcategory(""));
+    const changeSubCategory = event => (subCategory === event.currentTarget.name) ? setSubcategory("") : setSubcategory(event.currentTarget.name);
 
-    function buildSubTabRows() {
-        const rowMaxSubTabs = 4;
+    function buildSubCategoryRows() {
+        const rowMaxSubCategorys = 4;
         const builtRows = [];
-        const subtabs = tabs[tab];
-        for(let i = 0; i < subtabs.length; i++){
-            if(i % rowMaxSubTabs === 0){
-                builtRows.push([subtabs[i]]);;
+        const subCategorys = categories[category];
+        for(let i = 0; i < subCategorys.length; i++){
+            if(i % rowMaxSubCategorys === 0){
+                builtRows.push([subCategorys[i]]);;
             }
             else{
-                builtRows[Math.floor(i/rowMaxSubTabs)].push(subtabs[i]);
+                builtRows[Math.floor(i/rowMaxSubCategorys)].push(subCategorys[i]);
             }
         }
         return builtRows;
@@ -41,23 +40,23 @@ function Atlas() {
         <div>
             <div className="w-screen flex justify-center">
                 <div className="mb-2 w-11/12">
-                    {/* Tab grid */}
-                    <div className={`atlas-section mt-4 mb-2 py-3 grid grid-cols-${tabCols} justify-center`}>
-                        {tabKeys.map((item) => (
+                    {/* Category grid */}
+                    <div className={`atlas-section mt-4 mb-2 py-3 grid grid-cols-${categoryCols} justify-center`}>
+                        {categoryKeys.map((item) => (
                             <div className="flex justify-center">
-                                <button type="button" name={item} className="py-1 px-2 text-3xl" onClick={changeTab}>{item}</button>
+                                <button type="button" name={item} className="py-1 px-2 text-3xl" onClick={changeCategory}>{item}</button>
                             </div>
                         ))}
                     </div>
-                    {/* Subtab grid */}
-                    { tab !== "" &&
+                    {/* Subcategory grid */}
+                    { category !== "" &&
                     <div className="atlas-section">
-                        {buildSubTabRows().map((row, index) => {
+                        {buildSubCategoryRows().map((row, index) => {
                             return (
-                                <div key={`subtabRow-${index}`} className={"grid grid-cols-" + row.length}>
+                                <div key={`subcategoryRow-${index}`} className={"grid grid-cols-" + row.length}>
                                     {row.map(item => (
                                         <div className="flex justify-center">
-                                            <button name={item} className="my-1 py-1 px-2 text2xl row-span-1" onClick={changeSubTab}>{item}</button>
+                                            <button name={item} className="my-1 py-1 px-2 text2xl row-span-1" onClick={changeSubCategory}>{item}</button>
                                         </div>
                                     ))}
                                 </div>
@@ -67,7 +66,7 @@ function Atlas() {
                     }
                 </div>
             </div>
-            {tab !== "" && subTab !== "" && <Showcase></Showcase>}
+            {category !== "" && subCategory !== "" && <Showcase category={category} subCategory={subCategory}></Showcase>}
         </div>
     );
 }

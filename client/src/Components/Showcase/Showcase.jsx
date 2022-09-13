@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Pathology from '../Pathology/Pathology.jsx';
 
-function Showcase(){
+function Showcase(props){
+    const { category, subCategory } = props;
     const [state, setState] = useState({ apiResponse : [], currentPathologyID : null });
     useEffect(() => {
         fetch("http://localhost:9000/atlas")
@@ -32,7 +33,7 @@ function Showcase(){
     }
 
     return(
-        <div className="h-screen w-screen flex justify-center items-center">
+        <div className="w-screen flex justify-center items-center">
             <div className="gap-2 w-2/3 h-screen3/4 flex">
                 {/* pathology selector */}
                 <div className="atlas-section min-w-max w-fit flex justify-center">
