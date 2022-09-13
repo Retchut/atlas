@@ -42,9 +42,11 @@ function Atlas() {
             <div className="w-screen flex justify-center">
                 <div className="mb-2 w-11/12">
                     {/* Tab grid */}
-                    <div className={`atlas-section mt-4 mb-2 grid grid-cols-${tabCols} justify-center`}>
+                    <div className={`atlas-section mt-4 mb-2 py-3 grid grid-cols-${tabCols} justify-center`}>
                         {tabKeys.map((item) => (
-                            <button type="button" name={item} className="my-1 text-4xl" onClick={changeTab}>{item}</button>
+                            <div className="flex justify-center">
+                                <button type="button" name={item} className="py-1 px-2 text-3xl" onClick={changeTab}>{item}</button>
+                            </div>
                         ))}
                     </div>
                     {/* Subtab grid */}
@@ -53,7 +55,11 @@ function Atlas() {
                         {buildSubTabRows().map((row, index) => {
                             return (
                                 <div key={`subtabRow-${index}`} className={"grid grid-cols-" + row.length}>
-                                    {row.map(item => <button name={item} className="my-1 text3xl row-span-1" onClick={changeSubTab}>{item}</button>)}
+                                    {row.map(item => (
+                                        <div className="flex justify-center">
+                                            <button name={item} className="my-1 py-1 px-2 text2xl row-span-1" onClick={changeSubTab}>{item}</button>
+                                        </div>
+                                    ))}
                                 </div>
                             )
                         })}
