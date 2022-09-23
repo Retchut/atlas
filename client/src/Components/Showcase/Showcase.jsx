@@ -33,26 +33,20 @@ function Showcase(props){
     }
 
     return(
-        <div className="w-screen flex justify-center items-center">
-            <div className="gap-2 w-2/3 h-screen3/4 flex">
-                {/* pathology selector */}
-                <div className="atlas-section min-w-max w-fit flex justify-center">
-                    <div>
-                        {state.apiResponse.map((pathology, index) => (
-                            <img
-                                className="max-w-pathology-thumbnail m-4 rounded-lg cursor-pointer"
-                                src={process.env.REACT_APP_SERVER_STORAGE_DIR + pathology.imageHash}
-                                alt={pathology.name + '-thumb'}
-                                onClick={() => handlePathologyClick(pathology._id)}
-                                key={'pathology-thumb-' + index}>
-                            </img>))
-                        }
-                    </div>
-                </div>
-                {/* pathology showcase */}
-                <div className="atlas-section h-fit max-h-full grow">
-                    {displayPathology()}
-                </div>
+        <div className="flex gap-2 bg-blue-900 w-full h-full p-4">
+            <div className="atlas-section min-w-max w-fit">
+                {state.apiResponse.map((pathology, index) => (
+                    <img
+                        className="max-w-pathology-thumbnail m-4 rounded-lg cursor-pointer"
+                        src={process.env.REACT_APP_SERVER_STORAGE_DIR + pathology.imageHash}
+                        alt={pathology.name + '-thumb'}
+                        onClick={() => handlePathologyClick(pathology._id)}
+                        key={'pathology-thumb-' + index}>
+                    </img>))
+                }
+            </div>
+            <div className="atlas-section grow h-fit">
+                {displayPathology()}
             </div>
         </div>
     );

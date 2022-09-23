@@ -37,36 +37,13 @@ function Atlas() {
     }
 
     return (
-        <div>
-            <div className="w-screen flex justify-center">
-                <div className="mb-2 w-11/12">
-                    {/* Category grid */}
-                    <div className={`atlas-section mt-4 mb-2 py-3 grid grid-cols-${categoryCols} justify-center`}>
-                        {categoryKeys.map((item) => (
-                            <div className="flex justify-center">
-                                <button type="button" name={item} className="py-1 px-2 text-3xl" onClick={changeCategory}>{item}</button>
-                            </div>
-                        ))}
-                    </div>
-                    {/* Subcategory grid */}
-                    { category !== "" &&
-                    <div className="atlas-section">
-                        {buildSubCategoryRows().map((row, index) => {
-                            return (
-                                <div key={`subcategoryRow-${index}`} className={"grid grid-cols-" + row.length}>
-                                    {row.map(item => (
-                                        <div className="flex justify-center">
-                                            <button name={item} className="my-1 py-1 px-2 text2xl row-span-1" onClick={changeSubCategory}>{item}</button>
-                                        </div>
-                                    ))}
-                                </div>
-                            )
-                        })}
-                    </div>
-                    }
-                </div>
+        <div className="w-screen h-screen flex">
+            <div className="bg-black text-white menu-selector">
+                eventual navbar
             </div>
-            {category !== "" && subCategory !== "" && <Showcase category={category} subCategory={subCategory}></Showcase>}
+            <div className="grow">
+                <Showcase category={category} subCategory={subCategory}></Showcase>
+            </div>
         </div>
     );
 }
