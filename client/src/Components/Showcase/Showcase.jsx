@@ -45,7 +45,7 @@ function Showcase(props){
                     </img>))
                 }
             </div>
-            <div className="atlas-section grow h-fit">
+            <div className="atlas-section grow h-fit max-h-full overflow-scroll">
                 {displayPathology()}
             </div>
         </div>
