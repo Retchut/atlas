@@ -22,15 +22,15 @@ function Atlas() {
     const changeSubCategory = event => (subCategory === event.currentTarget.name) ? setSubcategory("") : setSubcategory(event.currentTarget.name);
 
     function buildSubCategoryRows() {
-        const rowMaxSubCategorys = 4;
+        const rowMaxSubcategories = 4;
         const builtRows = [];
-        const subCategorys = categories[category];
-        for(let i = 0; i < subCategorys.length; i++){
-            if(i % rowMaxSubCategorys === 0){
-                builtRows.push([subCategorys[i]]);;
+        const subcategories = categories[category];
+        for(let i = 0; i < subcategories.length; i++){
+            if(i % rowMaxSubcategories === 0){
+                builtRows.push([subcategories[i]]);;
             }
             else{
-                builtRows[Math.floor(i/rowMaxSubCategorys)].push(subCategorys[i]);
+                builtRows[Math.floor(i/rowMaxSubcategories)].push(subcategories[i]);
             }
         }
         return builtRows;
