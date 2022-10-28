@@ -1,114 +1,271 @@
 export const MenuData = [
     {
-        'Adaptação e lesão celular sub-letal' : [
-            'Tumefação celular',
-            'Alteração vacuolar',
-            'Alteração ou acumulação hidrópica',
-            'Alteração balonizante',
-            'Inclusões hialinas',
-            'Inclusões Pigmentares',
-            'Inclusões virais',
-            'Inclusões Cristalinas'
+        title : 'Adaptação e lesão celular sub-letal',
+        children : [
+            {
+                title : 'Tumefação celular',
+                children : []
+            },
+            {
+                title : 'Alteração vacuolar',
+                children : []
+            },
+            {
+                title : 'Alteração ou acumulação hidrópica',
+                children : []
+            },
+            {
+                title : 'Alteração balonizante',
+                children : []
+            },
+            {
+                title : 'Inclusões hialinas',
+                children : []
+            },
+            {
+                title : 'Inclusões Pigmentares',
+                children : []
+            },
+            {
+                title : 'Inclusões virais',
+                children : []
+            },
+            {
+                title : 'Inclusões Cristalinas',
+                children : []
+            }
         ]
     },
     {
-        'Alterações metabólicas e acumulações' : [
-            'Alteração do metabolismo dos Lípiidos',
-            'Alteração do metabolismo dos glúcidos',
-            'Alteração do metabolismo dos mucopolissacáridos',
+        title : 'Alterações metabólicas e acumulações',
+        children : [
             {
-                'Alteração do metabolismo das proteínas' : [
-                    'Alteração da Queratina',
-                    'Alteração do Colagénio',
+                title : 'Alteração do metabolismo dos Lípiidos',
+                children : []
+            },
+            {
+                title : 'Alteração do metabolismo dos glúcidos',
+                children : []
+            },
+            {
+                title : 'Alteração do metabolismo dos mucopolissacáridos',
+                children : []
+            },
+            {
+                title : 'Alteração do metabolismo das proteínas',
+                children : [
                     {
-                        'Alteração Hialina' : [
-                            'Amiloidose'
+                        title : 'Alteração da Queratina',
+                        children : []
+                    },
+                    {
+                        title : 'Alteração do Colagénio',
+                        children : []
+                    },
+                    {
+                        title: 'Alteração Hialina',
+                        children : [
+                            {
+                                title: 'Amiloidose',
+                                children : []
+                            }
                         ]
                     }
                 ]
             },
-            'Alteração do metabolismo das Nucleoproteínas',
-            'Alteração do metabolismo do Cálcio',
             {
-                'Pigmentos' : [
+                title : 'Alteração do metabolismo das Nucleoproteínas',
+                children : []
+            },
+            {
+                title : 'Alteração do metabolismo do Cálcio',
+                children : []
+            },
+            {
+                title : 'Pigmentos',
+                children : [
                     {
-                        'Pigmentos Exógenos' : [
-                            'Carvão e Sílica'
+                        title : 'Pigmentos Exógenos',
+                        children : [
+                            {
+                                title : 'Carvão e Sílica',
+                                children : []
+                            }
                         ],
                     },
                     {
-                        'Pigmentos Endógenos' : [
-                            'Melanina',
-                            'Hemossiderina',
-                            'Pigmento Biliar',
-                            'Pigmentos Lipogénicos'
+                        title : 'Pigmentos Endógenos',
+                        children : [
+                            {
+                                title : 'Melanina',
+                                children : []
+                            },
+                            {
+                                title : 'Hemossiderina',
+                                children : []
+                            },
+                            {
+                                title : 'Pigmento Biliar',
+                                children : []
+                            },
+                            {
+                                title : 'Pigmentos Lipogénicos',
+                                children : []
+                            }
                         ],
                     }
                 ]
                 
             },
-            'Cálculos e Pseudocálculos'
-        ],
-    },
-    {
-        'Necrose Celular e Tecidular' : [
-            'Necrose de Coagulação',
-            'Necrose de Liquefação',
-            'Necrose de Caseificação ',
-            'Necrose de Superfície - Erosão e Úlcera',
-            'Gangrena'
-        ],
-    },
-    {
-        'Inflamação' : [
             {
-                'Inflamação Aguda' : [
-                    'Inflamação serosa',
-                    'Inflamação purulenta',
-                    'Inflamação catarral',
+                title : 'Cálculos e Pseudocálculos',
+                children : []
+            }
+        ],
+    },
+    {
+        title : 'Necrose Celular e Tecidular',
+        children : [
+            {
+                title : 'Necrose de Coagulação',
+                children : []
+            },
+            {
+                title : 'Necrose de Liquefação',
+                children : []
+            },
+            {
+                title : 'Necrose de Caseificação ',
+                children : []
+            },
+            {
+                title : 'Necrose de Superfície - Erosão e Úlcera',
+                children : []
+            },
+            {
+                title : 'Gangrena',
+                children : []
+            }
+        ],
+    },
+    {
+        title : 'Inflamação',
+        children : [
+            {
+                title : 'Inflamação Aguda',
+                children : [
                     {
-                        'Inflamação fibrinosa' : [
-                            'Inflamação pseudomembranosa'
+                        title : 'Inflamação serosa',
+                        children : []
+                    },
+                    {
+                        title : 'Inflamação purulenta',
+                        children : []
+                    },
+                    {
+                        title : 'Inflamação catarral',
+                        children : []
+                    },
+                    {
+                        title : 'Inflamação fibrinosa',
+                        children : [
+                            {
+                                title : 'Inflamação pseudomembranosa',
+                                children : []
+                            }
                         ],
                     }
                 ],
             },
-            'Inflamação Crónica'
+            {
+                title : 'Inflamação Crónica',
+                children : []
+            }
         ],
     },
     {
-        'Reconstrução tecidular' : [
-            'Regeneração',
+        title : 'Reconstrução tecidular',
+        children : [
             {
-                'Reparação' : [
-                    'Tecido de Granulação e Cicatriz ',
-                    'Problemas na Cicatrização'
+                title : 'Regeneração',
+                children : []
+            },
+            {
+                title : 'Reparação',
+                children : [
+                    {
+                        title : 'Tecido de Granulação e Cicatriz ',
+                        children : []
+                    },
+                    {
+                        title : 'Problemas na Cicatrização',
+                        children : []
+                    }
                 ]
             }
         ],
     },
     {
-        'Alterações circulatórias' : [
-            'Congestão e Hemorragia',
-            'Trombose',
-            'Embolia',
-            'Enfarte',
-            'Edema'
+        title : 'Alterações circulatórias',
+        children : [
+            {
+                title : 'Congestão e Hemorragia',
+                children : []
+            },
+            {
+                title : 'Trombose',
+                children : []
+            },
+            {
+                title : 'Embolia',
+                children : []
+            },
+            {
+                title : 'Enfarte',
+                children : []
+            },
+            {
+                title : 'Edema',
+                children : []
+            }
         ],
     },
     {
-        'Alterações do crescimento e diferenciação' : [
-            'Congénitas',
+        title : 'Alterações do crescimento e diferenciação',
+        children : [
             {
-                'Adquiridas/adaptativas' : [
-                    'Hipertrofia e atrofia',
-                    'Hiperplasia e involução',
-                    'Metaplasia ',
-                    'Displasia'
+                title : 'Congénitas',
+                children : []
+            },
+            {
+                title : 'Adquiridas/adaptativas',
+                children : [
+                    {
+                        title : 'Hipertrofia e atrofia',
+                        children : []
+                    },
+                    {
+                        title : 'Hiperplasia e involução',
+                        children : []
+                    },
+                    {
+                        title : 'Metaplasia ',
+                        children : []
+                    },
+                    {
+                        title : 'Displasia',
+                        children : []
+                    }
                 ]
             }
         ],
     },
-    'Neoplasias (tumores)',
-    'Alterações post mortem e Fenómenos cadavéricos'
+    {
+        title : 'Neoplasias (tumores)',
+        children : []
+    },
+    {
+        title : 'Alterações post mortem e Fenómenos cadavéricos',
+        children : []
+    }
 ]
