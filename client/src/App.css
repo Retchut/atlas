@@ -1,11 +1,11 @@
 body {
-    @apply bg-theme1-gray
+    @apply bg-body-bg 
 }
 
 .atlas-section {
-    @apply bg-theme2-blue-light rounded-lg overflow-auto border-2 border-black
+    @apply bg-section-bg rounded-lg overflow-auto border-2 border-text
 }
 
 button {
-    @apply rounded-lg hover:bg-theme1-blue-dark
+    @apply rounded-lg hover:bg-active-bg
 }

@@ -4,14 +4,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'theme1-gray'  : '#b9c1c6',
-        'theme1-blue-light' : '#83b1cb',
-        'theme1-blue-dark'  : '#364954',
-        
-        'theme2-blue-light'  : '#eafcff',
-        'theme2-blue'        : '#00a2ee',
-        'theme2-green-light' : '#d6e9e5',
-        'theme2-green'       : '#7fd1ae',
+        'body-bg'     : '#b9c1c6',
+        'section-bg'  : '#eafcff',
+        'active-bg'   : '#83b1cb',
+        'text'        : '#000',
+        'blue'        : '#00a2ee',
+        'green-light' : '#d6e9e5',
+        'green'       : '#7fd1ae',
       },
       height: {
         'screen3/4' : 'calc(3*100vh/4)',
