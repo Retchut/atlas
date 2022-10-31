@@ -1,31 +1,32 @@
-import React from "react";
+import { useState } from "react";
 import { MenuData } from '../../Data/MenuData.js';
 
 function Selector(){
 
-    function buildChildItems(item){
-
+    function SelectorItem(props){
+    
+        const [ isOpen, setOpen ] = useState(false);
+        const { item } = props;
+    
         return (
-            <>
-                <p className="px-3">{item.title}</p>
-                {item.children.length !== 0 &&
-                    <ul>
-                        {item.children.map((child) =>
-                            <li>{buildChildItems(child)}</li>
-                        )}
-                    </ul>
+            <li>
+                <button className="w-full text-start px-2 mt-1 text-lg" onClick={()=>setOpen(!isOpen)} style={{ "background-color": isOpen ? "#83b1cb" : "#eafcff" }}>{item.title}</button>
+                {isOpen && 
+                    <div className="px-5">
+                        {item.children.map((entry => (
+                            <SelectorItem item={entry} />
+                        )))}
+                    </div>
                 }
-            </>
+            </li>
         )
     }
 
     return(
-        <ul className="atlas-section h-full">
-            {MenuData.map((item, index) => 
-                <li key={"outer-" + index}>
-                    {buildChildItems(item)}
-                </li>
-            )}
+        <ul className="atlas-section h-full px-1 max-w-xs">
+            {MenuData.map(entry => (
+                <SelectorItem item={entry} />
+            ))}
         </ul>
     )
 }
