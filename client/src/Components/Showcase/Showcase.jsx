@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Pathology from '../Pathology/Pathology.jsx';
 
 function Showcase(props){
-    const { category, subCategory } = props;
+    const { category } = props;
     const [state, setState] = useState({ apiResponse : [], currentPathologyID : null });
     useEffect(() => {
         fetch("http://localhost:9000/atlas")
