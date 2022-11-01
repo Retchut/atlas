@@ -7,10 +7,9 @@ module.exports = {
         'body-bg'     : '#b9c1c6',
         'section-bg'  : '#eafcff',
         'active-bg'   : '#83b1cb',
+        'selected-bg' : '#7fd1ae',
         'text'        : '#000',
         'blue'        : '#00a2ee',
-        'green-light' : '#d6e9e5',
-        'green'       : '#7fd1ae',
       },
       height: {
         'screen3/4' : 'calc(3*100vh/4)',
