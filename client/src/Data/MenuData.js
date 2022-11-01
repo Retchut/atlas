@@ -40,7 +40,7 @@ export const MenuData = [
         title : 'Alterações metabólicas e acumulações',
         children : [
             {
-                title : 'Alteração do metabolismo dos Lípiidos',
+                title : 'Alteração do metabolismo dos Lípidos',
                 children : []
             },
             {
