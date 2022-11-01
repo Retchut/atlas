@@ -10,7 +10,7 @@ function Selector(){
     
         return (
             <li>
-                <button className="w-full text-start px-2 mt-1 text-lg" onClick={()=>setOpen(!isOpen)} style={{ "background-color": isOpen ? "#83b1cb" : "#eafcff" }}>{item.title}</button>
+                <button className={`w-full text-start px-2 mt-1 text-lg` + (isOpen ? " bg-active-bg" : "")} onClick={()=>setOpen(!isOpen)}>{item.title}</button>
                 {isOpen && 
                     <div className="px-5">
                         {item.children.map((entry => (
