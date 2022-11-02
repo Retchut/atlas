@@ -33,7 +33,7 @@ function Showcase(props){
     }
 
     return(
-        <div className="flex gap-2 w-full h-full">
+        <div className="flex gap-2 w-full h-full max-w-screen-2xl">
             <div className="atlas-section min-w-max w-fit">
                 {state.apiResponse.map((pathology, index) => (
                     <img
