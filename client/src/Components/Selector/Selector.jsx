@@ -1,16 +1,33 @@
-import { useState } from "react";
 import { MenuData } from '../../Data/MenuData.js';
 
-function Selector(){
+function Selector(props){
+
+    const { category, categorySetter, openCategories, openCategoriesSetter } = props;
 
     function SelectorItem(props){
     
-        const [ isOpen, setOpen ] = useState(false);
         const { item } = props;
+        const title = item.title;
+        const isOpen = openCategories.includes(title);
+        const isSelected = (category === title);
+
+        const handleClick = () => {
+            if(item.children.length === 0) {
+                categorySetter(title);
+            }
+            else {
+                if(openCategories.includes(title)){
+                    openCategoriesSetter(openCategories.filter((item) => item !== title));
+                }
+                else{
+                    openCategoriesSetter([...openCategories, title]);
+                }
+            }
+        }
     
         return (
             <li>
-                <button className={`w-full text-start px-2 mt-1 text-lg` + (isOpen ? " bg-active-bg" : "")} onClick={()=>setOpen(!isOpen)}>{item.title}</button>
+                <button className={`w-full text-start px-2 mt-1 text-lg` + (isOpen ? " bg-active-bg" : "") + ((isSelected) ? " bg-selected-bg" : "")} onClick={()=>handleClick()}>{title}</button>
                 {isOpen && 
                     <ul className="px-5">
                         {item.children.map(((entry, index) => (

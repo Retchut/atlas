@@ -5,12 +5,13 @@ import Selector from '../../Components/Selector/Selector.jsx';
 function Atlas() {
 
     const [ category, setCategory ]  = useState("");
-    const changeCategory = event => (category === event.currentTarget.name) ? setCategory("") : setCategory(event.currentTarget.name);
+    const [ openCategories, setOpenCategories ] = useState([])
+    const changeCategory = (newCategory) => (category === newCategory) ? setCategory("") : setCategory(newCategory);
 
     return (
         <div className="w-screen h-screen flex p-4">
             <div className="mr-2">
-                <Selector categoryHandler={changeCategory}></Selector>
+                <Selector category={category} openCategories={openCategories} categorySetter={changeCategory} openCategoriesSetter={setOpenCategories} ></Selector>
             </div>
             <div className="ml-2 grow">
                 <Showcase category={category}></Showcase>
