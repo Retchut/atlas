@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const seedDB = require('./scripts/seedDatabase.js');
+const seedDB = require('./scripts/seedUtils.js');
 
 
 // start express app

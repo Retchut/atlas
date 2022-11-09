@@ -1,18 +1,19 @@
 require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
-const Pathology = require('../models/pathology');
-const seedData = require('./seedData.json');
+const seedDB = require('./seedUtils.js');
 
-const modifyDB = async() => {
-    await Pathology.deleteMany({});
-    await Pathology.insertMany(seedData);
+const seedDBReactScript = async () => {
+    const app = express();
+    app.use(cors());
+    app.use(express.json());
+    app.use(process.env.STORAGE_DIR, express.static('storage'))
+
+    await mongoose.connect(process.env.DBURL, { useNewUrlParser: true });
+    const db = mongoose.connection;
+    await seedDB(db);
+    await mongoose.connection.close();
 }
 
-const seedDB = async (connection) => {
-    connection.on('error', (error) => console.log(error));
-    connection.once('open', () => console.log('Connected to the database'));
-
-    await modifyDB().then(console.log("Database seeded"));
-}
-
-module.exports = seedDB;
+seedDBReactScript();

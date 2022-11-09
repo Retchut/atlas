@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "seeddb" : "node scripts/seedDatabase.js"
+    "seed" : "node scripts/seedDatabase.js"
   },
   "author": "",
   "license": "ISC",
