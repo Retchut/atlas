@@ -1,7 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 const Pathology = require('../models/pathology');
-const seedData = require('./seedData.json');
+const seedData = require('../data/seedData.json');
 
 const modifyDB = async() => {
     await Pathology.deleteMany({});

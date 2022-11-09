@@ -1,5 +1,5 @@
 .env
 node_modules
-scripts/seedData.json
+data/seedData.json
 storage/*
 !storage/.gitkeep
