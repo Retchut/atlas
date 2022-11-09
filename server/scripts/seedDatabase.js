@@ -6,17 +6,16 @@ const seedData = require('./seedData.json');
 const modifyDB = async() => {
     await Pathology.deleteMany({});
     await Pathology.insertMany(seedData);
-    console.log("seeded db");
 }
 
-const seedDB = async () => {
+const seedDB = async () => { 
     await mongoose.connect(process.env.DBURL, { useNewUrlParser: true });
     const db = mongoose.connection;
     db.on('error', (error) => console.log(error));
     db.once('open', () => console.log('Connected to the database'));
 
-    await modifyDB();
+    await modifyDB().then(console.log("Database seeded"));
     await mongoose.connection.close();
 }
 
-seedDB();
+module.exports = seedDB;
