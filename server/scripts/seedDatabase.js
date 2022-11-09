@@ -8,14 +8,11 @@ const modifyDB = async() => {
     await Pathology.insertMany(seedData);
 }
 
-const seedDB = async () => { 
-    await mongoose.connect(process.env.DBURL, { useNewUrlParser: true });
-    const db = mongoose.connection;
-    db.on('error', (error) => console.log(error));
-    db.once('open', () => console.log('Connected to the database'));
+const seedDB = async (connection) => {
+    connection.on('error', (error) => console.log(error));
+    connection.once('open', () => console.log('Connected to the database'));
 
     await modifyDB().then(console.log("Database seeded"));
-    await mongoose.connection.close();
 }
 
 module.exports = seedDB;
