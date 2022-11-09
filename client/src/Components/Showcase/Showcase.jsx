@@ -5,8 +5,8 @@ function Showcase(props){
     const { category } = props;
     const [state, setState] = useState({ apiResponse : [], currentPathologyID : null });
     useEffect(() => {
-        fetch(process.env.SERVER_LOCATION)
-            .then(res => console.log(res.json()))
+        fetch(process.env.REACT_APP_SERVER_LOCATION)
+            .then(res => res.json())
             .then(resData => setState({ apiResponse: resData, currentPathologyID : null }))
             .catch();
     }, []);
