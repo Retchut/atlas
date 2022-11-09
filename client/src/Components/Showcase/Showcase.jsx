@@ -5,8 +5,8 @@ function Showcase(props){
     const { category } = props;
     const [state, setState] = useState({ apiResponse : [], currentPathologyID : null });
     useEffect(() => {
-        fetch("http://localhost:9000/atlas")
-            .then(res => res.json())
+        fetch(process.env.SERVER_LOCATION)
+            .then(res => console.log(res.json()))
             .then(resData => setState({ apiResponse: resData, currentPathologyID : null }))
             .catch();
     }, []);
