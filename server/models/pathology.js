@@ -15,6 +15,4 @@ const pathologySchema = new mongoose.Schema({
     }
 });
 
-const pathologyModel = mongoose.model('Pathology', pathologySchema);
-
-module.exports = pathologyModel;
+module.exports = pathologySchema;

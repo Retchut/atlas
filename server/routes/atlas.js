@@ -1,13 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const Pathology = require('../models/pathology');
+const mongoose = require('mongoose');
+const pathologySchema = require('../models/pathology');
 
 
 // GET all
-router.get('/', async (req, res) => {
+router.get('/:category', async (req, res) => {
     try {
-        const paths = await Pathology.find();
-        res.status(200).json(paths);
+        if(req.params.category === 'undefined'){
+            res.status(200).json([]);
+        }
+        else {
+            const categoryModel = mongoose.model(req.params.category, pathologySchema);
+            const paths = await categoryModel.find();
+            res.status(200).json(paths);
+        }
     }
     catch (err) {
         res.status(500).json({ message : err.message })

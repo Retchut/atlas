@@ -1,11 +1,15 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const Pathology = require('../models/pathology');
+const pathologySchema = require('../models/pathology');
 const seedData = require('../data/seedData.json');
 
 const modifyDB = async() => {
-    await Pathology.deleteMany({});
-    await Pathology.insertMany(seedData);
+    for(const category in seedData){
+        console.log(category);
+        const categoryModel = mongoose.model(category, pathologySchema);
+        await categoryModel.deleteMany({});
+        await categoryModel.insertMany(seedData[category]);
+    }
 }
 
 const seedDB = async (connection) => {
