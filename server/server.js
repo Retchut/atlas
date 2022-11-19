@@ -13,12 +13,12 @@ app.use(process.env.STORAGE_DIR, express.static('storage'))
 
 // mongoose
 mongoose.connect(process.env.DBURL, { useNewUrlParser: true });
-const db = mongoose.connection;
-db.on('error', (error) => console.log(error));
-db.once('open', () => {
+const conn = mongoose.connection;
+conn.on('error', (error) => console.log(error));
+conn.once('open', () => {
     console.log('Connected to the database');
 });
-seedDB(db);
+seedDB(conn);
 
 
 // routes

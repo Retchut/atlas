@@ -3,19 +3,16 @@ const mongoose = require('mongoose');
 const pathologySchema = require('../models/pathology');
 const seedData = require('../data/seedData.json');
 
-const modifyDB = async() => {
+const modifyDB = async () => {
     for(const category in seedData){
-        console.log(category);
         const categoryModel = mongoose.model(category, pathologySchema);
-        await categoryModel.deleteMany({});
+        // await categoryModel.deleteMany({});
         await categoryModel.insertMany(seedData[category]);
     }
 }
 
 const seedDB = async (connection) => {
-    connection.on('error', (error) => console.log(error));
-    connection.once('open', () => console.log('Connected to the database'));
-
+    connection.getClient().db().dropDatabase()
     await modifyDB().then(console.log("Database seeded"));
 }
 

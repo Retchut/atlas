@@ -4,12 +4,13 @@ import { categoryMap } from '../../Data/CategoryMap.js';
 
 function Showcase(props){
     const { category } = props;
-    const [state, setState] = useState({ apiResponse : [] });
+    const [ state, setState ] = useState({ apiResponse : [] });
     const [ currentPathologyID, setCurrentPathologyID ] = useState(null);
+
     useEffect(() => {
         fetch(process.env.REACT_APP_SERVER_LOCATION + '/' + categoryMap[category])
             .then(res => res.json())
-            .then(resData => setState({ apiResponse: resData }))
+            .then(resData => setState({ apiResponse: resData })).then(console.log(state.apiResponse))
             .catch();
     }, [state]);
 
@@ -19,7 +20,6 @@ function Showcase(props){
 
     const getPathologyError = () => <h1 className="my-5 text-5xl text-center">Please select an image on the menu to the left</h1>;
     function displayPathology(){
-        console.log(currentPathologyID);
         if(currentPathologyID === null){
             return getPathologyError();
         }
