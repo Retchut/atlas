@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" exact element={<Atlas />} />
+        <Route path="/" exact element={<Atlas/>} />
       </Routes>
     </>
   );
