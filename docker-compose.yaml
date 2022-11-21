@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  client:
+    build: ./client
+    ports:
+      - "3000:3000"
+  server:
+    build: ./server
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./server/storage/:/app/backend/storage
+  db:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
