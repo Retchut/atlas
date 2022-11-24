@@ -10,8 +10,8 @@ function Showcase(props){
     useEffect(() => {
         fetch(process.env.REACT_APP_SERVER_LOCATION + '/' + categoryMap[category])
             .then(res => res.json())
-            .then(resData => setState({ apiResponse: resData })).then(console.log(state.apiResponse))
-            .catch();
+            .then(resData => setState({ apiResponse: resData }))
+            .catch(e => console.log(e));
     }, [state]);
 
     function handlePathologyClick(pathologyID){
@@ -37,19 +37,21 @@ function Showcase(props){
 
     return(
         <div className="flex gap-2 w-full h-full max-w-screen-2xl">
-            { category !== "" &&
-                <div className="atlas-section min-w-max w-fit h-fit max-h-full">
-                    {state.apiResponse.map((pathology, index) => (
-                        <img
-                            className="max-w-pathology-thumbnail m-4 rounded-lg cursor-pointer"
-                            src={process.env.REACT_APP_SERVER_STORAGE_DIR + pathology.imageHash}
-                            alt={pathology.name + '-thumb'}
-                            onClick={() => handlePathologyClick(pathology._id)}
-                            key={'pathology-thumb-' + index}>
-                        </img>))
-                    }
-                </div>
-            }
+            <div className="w-36">
+                { state.apiResponse.length !== 0 &&
+                    <div className="atlas-section min-w-full w-fit h-fit max-h-full">
+                        {state.apiResponse.map((pathology, index) => (
+                            <img
+                                className="max-w-pathology-thumbnail m-4 rounded-lg cursor-pointer"
+                                src={process.env.REACT_APP_SERVER_STORAGE_DIR + pathology.imageHash}
+                                alt={pathology.name + '-thumb'}
+                                onClick={() => handlePathologyClick(pathology._id)}
+                                key={'pathology-thumb-' + index}>
+                            </img>))
+                        }
+                    </div>
+                }
+            </div>
             <div className="atlas-section grow h-fit max-h-full overflow-scroll">
                 {displayPathology()}
             </div>
