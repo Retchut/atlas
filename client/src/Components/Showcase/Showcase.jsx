@@ -18,7 +18,7 @@ function Showcase(props){
         setCurrentPathologyID(pathologyID)
     }
 
-    const getPathologyError = () => <h1 className="my-5 text-5xl text-center">Please select an image on the menu to the left</h1>;
+    const getPathologyError = () => <h1 className="my-5 text-5xl text-center">{(category === "") ? "Please select a category on the drop-down menu to the left" :"Please select an image on the menu to the left" }</h1>;
     function displayPathology(){
         if(currentPathologyID === null){
             return getPathologyError();
