@@ -40,11 +40,13 @@ function Selector(props){
     }
 
     return(
-        <ul className="atlas-section h-full px-1 max-w-xs">
-            {MenuData.map((entry, index) => (
-                <SelectorItem item={entry} key={`${entry.title}-${index}`}/>
-            ))}
-        </ul>
+        <div className="h-full">
+            <ul className="atlas-section h-fit max-h-full px-1 pb-1 max-w-xs">
+                {MenuData.map((entry, index) => (
+                    <SelectorItem item={entry} key={`${entry.title}-${index}`}/>
+                ))}
+            </ul>
+        </div>
     )
 }
 
