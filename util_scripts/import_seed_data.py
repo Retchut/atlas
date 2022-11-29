@@ -8,7 +8,7 @@ SEED_DATA_FILE_NAME = '../server/data/seedData.json'
 SERVER_STORAGE_FOLDER = '../server/storage/'
 CLIENT_CATEGORY_MAP_FILE = '../client/src/Data/CategoryMap.js'
 PARAMS = {
-    'category' : 'categoria',
+    'category' : 'Categoria',
     'name' : 'nome',
     'description' : 'descrição',
     'image_file' : 'ficheiro_imagem'
@@ -30,7 +30,7 @@ def generate_seed():
 
     df = pd.read_excel(DATA_FILE_NAME)
     for index, row in df.iterrows():
-        category = row['categoria']
+        category = row[PARAMS['category']]
         
         if(category not in category_map):
             normalized_category = remove_accents(category.lower().replace(' ', '_'))
@@ -39,12 +39,14 @@ def generate_seed():
         if(category_map[category] not in seed_data):
             seed_data[category_map[category]] = []
 
-        name = row['nome']
-        description = row['descrição']
-        old_img_file = DATA_FOLDER + category + '/' + row['ficheiro_imagem']
-        new_img_filename = hashlib.sha256(name.encode('utf-8')).hexdigest()
+        name = row[PARAMS['name']]
+        description = row[PARAMS['description']]
+        data_img_filename = os.path.splitext(row[PARAMS['image_file']])
+        fixed_img_filename = (''.join(data_img_filename)) if (data_img_filename[1] != '.tif') else (data_img_filename[0] + '.png')
+        old_img_file = DATA_FOLDER + category + '/' + fixed_img_filename
+        new_img_filename = hashlib.sha256((name+old_img_file).encode('utf-8')).hexdigest()
 
-        shutil.copyfile(old_img_file, SERVER_STORAGE_FOLDER + new_img_filename)
+        print(shutil.copyfile(old_img_file, SERVER_STORAGE_FOLDER + new_img_filename))
 
         item = {
             'name' : name,
