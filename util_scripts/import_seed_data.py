@@ -46,7 +46,7 @@ def generate_seed():
         old_img_file = DATA_FOLDER + category + '/' + fixed_img_filename
         new_img_filename = hashlib.sha256((name+old_img_file).encode('utf-8')).hexdigest()
 
-        print(shutil.copyfile(old_img_file, SERVER_STORAGE_FOLDER + new_img_filename))
+        shutil.copyfile(old_img_file, SERVER_STORAGE_FOLDER + new_img_filename)
 
         item = {
             'name' : name,
