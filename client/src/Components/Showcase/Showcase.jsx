@@ -10,8 +10,7 @@ function Showcase(props){
     useEffect(() => {
         fetch(process.env.REACT_APP_SERVER_LOCATION + '/' + categoryMap[category])
             .then(res => res.json())
-            .then(resData => setState({ apiResponse: resData }))
-            .catch(e => console.log(e));
+            .then(resData => setState({ apiResponse: resData }));
     }, [state]);
 
     function handlePathologyClick(pathologyID){
@@ -26,7 +25,6 @@ function Showcase(props){
         }
 
         const pathology = state.apiResponse.find((item) => item._id === currentPathologyID);
-        console.log(currentPathologyID)
         if(typeof pathology == "undefined"){
             return getPathologyError();
         }
