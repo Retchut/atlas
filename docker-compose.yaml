@@ -3,10 +3,12 @@ version: '3'
 services:
   client:
     build: ./client
+    container_name: atlas-client
     ports:
       - "3000:3000"
   server:
     build: ./server
+    container_name: atlas-server
     ports:
       - "9000:9000"
     volumes:
