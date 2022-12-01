@@ -11,7 +11,7 @@ function Showcase(props){
         fetch(process.env.REACT_APP_SERVER_LOCATION + '/' + categoryMap[category])
             .then(res => res.json())
             .then(resData => setState({ apiResponse: resData }));
-    }, [state]);
+    }, [state, category]);
 
     function handlePathologyClick(pathologyID){
         setCurrentPathologyID(pathologyID)
