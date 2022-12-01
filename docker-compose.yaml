@@ -10,7 +10,7 @@ services:
     ports:
       - "9000:9000"
     volumes:
-      - ./server/storage/:/app/backend/storage
+      - ./server/storage/:/app/backend/storage/
   db:
     image: mongo
     container_name: mongodb
