@@ -8,7 +8,7 @@ function Pathology(props){
             <div className="flex justify-center">
                 <img
                     className="mt-4 mb-3"
-                    src={process.env.REACT_APP_SERVER_STORAGE_DIR + pathologyData.imageHash}
+                    src={process.env.REACT_APP_SERVER_LOCATION + 'storage/' + pathologyData.imageHash}
                     alt={pathologyData.name + '-thumb'}
                 ></img>
             </div>

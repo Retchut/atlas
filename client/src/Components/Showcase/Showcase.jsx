@@ -8,7 +8,7 @@ function Showcase(props){
     const [ currentPathologyID, setCurrentPathologyID ] = useState(null);
 
     useEffect(() => {
-        fetch(process.env.REACT_APP_SERVER_LOCATION + '/' + categoryMap[category])
+        fetch(process.env.REACT_APP_SERVER_LOCATION + 'atlas/' + categoryMap[category])
             .then(res => res.json())
             .then(resData => setState({ apiResponse: resData }));
     }, [state, category]);
@@ -41,7 +41,7 @@ function Showcase(props){
                         {state.apiResponse.map((pathology, index) => (
                             <img
                                 className="max-w-pathology-thumbnail m-4 rounded-lg cursor-pointer"
-                                src={process.env.REACT_APP_SERVER_STORAGE_DIR + pathology.imageHash}
+                                src={process.env.REACT_APP_SERVER_LOCATION + 'storage/' + pathology.imageHash}
                                 alt={pathology.name + '-thumb'}
                                 onClick={() => handlePathologyClick(pathology._id)}
                                 key={'pathology-thumb-' + index}>
