@@ -3,3 +3,4 @@ data/seedData.json
 storage/*
 !storage/.gitkeep
 .env
+.envProd

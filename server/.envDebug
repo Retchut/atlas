@@ -1,0 +1,2 @@
+DBURL=mongodb://mongodb/
+APPPORT=9000
