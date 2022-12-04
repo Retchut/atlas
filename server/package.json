@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "seed" : "node scripts/seedDatabase.js"
+    "seed" : "node scripts/seedDatabase.js",
+    "production" : "NODE_ENV=production concurrently --kill-others-on-fail npm:db npm:start",
+    "db" : "mongod"
   },
   "author": "",
   "license": "ISC",
