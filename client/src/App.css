@@ -1,11 +1,11 @@
 body {
-    @apply bg-body-bg 
+  @apply bg-body-bg;
 }
 
 .atlas-section {
-    @apply bg-section-bg rounded-lg overflow-auto border-2 border-text
+  @apply bg-section-bg rounded-lg overflow-auto border-2 border-text;
 }
 
 button {
-    @apply rounded-lg hover:bg-active-bg
+  @apply rounded-lg hover:bg-active-bg;
 }

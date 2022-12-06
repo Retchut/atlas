@@ -4,36 +4,36 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'body-bg'     : '#b9c1c6',
-        'section-bg'  : '#eafcff',
-        'active-bg'   : '#83b1cb',
-        'selected-bg' : '#7fd1ae',
-        'text'        : '#000',
-        'blue'        : '#00a2ee',
+        "body-bg": "#b9c1c6",
+        "section-bg": "#eafcff",
+        "active-bg": "#83b1cb",
+        "selected-bg": "#7fd1ae",
+        text: "#000",
+        blue: "#00a2ee",
       },
       height: {
-        'screen3/4' : 'calc(3*100vh/4)',
-        'screen/2'  : '50vh',
-        'screen/3'  : 'calc(100vh / 3)',
-        'screen/4'  : 'calc(100vh / 4)',
-        'screen/5'  : 'calc(100vh / 5)'
+        "screen3/4": "calc(3*100vh/4)",
+        "screen/2": "50vh",
+        "screen/3": "calc(100vh / 3)",
+        "screen/4": "calc(100vh / 4)",
+        "screen/5": "calc(100vh / 5)",
       },
       width: {
-        'screen3/4' : 'calc(3*100vh/4)',
-        'screen/2'  : '50vh',
-        'screen/3'  : 'calc(100vh / 3)',
-        'screen/4'  : 'calc(100vh / 4)',
-        'screen/5'  : 'calc(100vh / 5)'
+        "screen3/4": "calc(3*100vh/4)",
+        "screen/2": "50vh",
+        "screen/3": "calc(100vh / 3)",
+        "screen/4": "calc(100vh / 4)",
+        "screen/5": "calc(100vh / 5)",
       },
       maxWidth: {
-        'pathology-thumbnail' : '100px'
-      }
+        "pathology-thumbnail": "100px",
+      },
     },
   },
   safelist: [
     {
-        pattern: /grid-cols-./,
-    }
+      pattern: /grid-cols-./,
+    },
   ],
   plugins: [],
-}
+};
