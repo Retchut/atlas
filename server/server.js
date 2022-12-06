@@ -9,10 +9,10 @@ const seedDB = require('./scripts/seedUtils.js');
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(process.env.STORAGE_DIR, express.static('storage'))
+app.use('/storage', express.static('storage'))
 
 // mongoose
-mongoose.connect(process.env.DBURL, { useNewUrlParser: true });
+mongoose.connect(process.env.DBURL + 'atlas', { useNewUrlParser: true });
 const conn = mongoose.connection;
 conn.on('error', (error) => console.log(error));
 conn.once('open', () => {

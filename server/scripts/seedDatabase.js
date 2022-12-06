@@ -8,9 +8,9 @@ const seedDBReactScript = async () => {
     const app = express();
     app.use(cors());
     app.use(express.json());
-    app.use(process.env.STORAGE_DIR, express.static('storage'))
+    app.use('/storage', express.static('storage'))
 
-    await mongoose.connect(process.env.DBURL, { useNewUrlParser: true });
+    await mongoose.connect(process.env.DBURL + 'atlas', { useNewUrlParser: true });
     const db = mongoose.connection;
     await seedDB(db);
     await mongoose.connection.close();
