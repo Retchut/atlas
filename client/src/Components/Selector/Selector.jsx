@@ -27,8 +27,8 @@ function Selector(props) {
         <button
           className={
             `w-full text-start px-2 mt-1 text-lg` +
-            (isOpen ? " bg-active-bg" : "") +
-            (isSelected ? " bg-selected-bg" : "")
+            (isOpen ? " bg-active-bg text-white" : "") +
+            (isSelected ? " bg-selected-bg text-white" : "")
           }
           onClick={() => handleClick()}
         >
