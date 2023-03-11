@@ -13,7 +13,8 @@ COPY models/ ./models/
 COPY routes/ ./routes/
 COPY scripts/ ./scripts/
 COPY storage/ ./storage/
-COPY .env package.json package-lock.json server.js ./
+COPY package.json package-lock.json server.js ./
+COPY .envProd ./.env
 # install express app dependencies
 RUN npm install
 RUN npm install concurrently
