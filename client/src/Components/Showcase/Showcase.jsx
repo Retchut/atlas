@@ -12,7 +12,8 @@ function Showcase(props) {
       process.env.REACT_APP_SERVER_LOCATION + "atlas/" + categoryMap[category]
     )
       .then((res) => res.json())
-      .then((resData) => setState({ apiResponse: resData }));
+      .then((resData) => setState({ apiResponse: resData }))
+      .catch(err => console.error(err));
   }, [state, category]);
 
   function handlePathologyClick(pathologyID) {
