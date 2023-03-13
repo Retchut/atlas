@@ -10,7 +10,7 @@ function Atlas() {
 
   return (
     <div className="w-screen h-screen flex p-4">
-      <div className="mr-2">
+      <div className="mr-2 w-[20%]">
         <div className="my-2 atlas-section button-link text-center text-2xl">
           <a href="/">Voltar</a>
         </div>
@@ -21,7 +21,7 @@ function Atlas() {
           openCategoriesSetter={setOpenCategories}
         ></Selector>
       </div>
-      <div className="ml-2 grow">
+      <div className="ml-2 w-[80%]">
         <Showcase category={category}></Showcase>
       </div>
     </div>
