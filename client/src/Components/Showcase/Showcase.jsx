@@ -21,7 +21,7 @@ function Showcase(props) {
   }
 
   const getPathologyError = () => (
-    <h1 className="my-5 text-5xl text-center">
+    <h1 className="my-5 px-4 text-5xl text-center">
       {category === ""
         ? "Please select a category on the drop-down menu to the left"
         : "Please select an image on the menu to the left"}
@@ -45,12 +45,12 @@ function Showcase(props) {
 
   return (
     <div className="flex gap-2 w-full h-full max-w-screen-2xl">
-      <div className="w-36">
+      <div className="w-[15%]">
         {state.apiResponse.length !== 0 && (
-          <div className="atlas-section min-w-full w-fit h-fit max-h-full">
+          <div className="atlas-section min-w-full h-fit px-2 max-h-full flex flex-col items-center ">
             {state.apiResponse.map((pathology, index) => (
               <img
-                className="max-w-pathology-thumbnail m-4 rounded-lg cursor-pointer"
+                className="max-w-pathology-thumbnail w-full my-2 rounded-lg cursor-pointer"
                 src={
                   process.env.REACT_APP_SERVER_LOCATION +
                   "storage/" +
@@ -64,7 +64,7 @@ function Showcase(props) {
           </div>
         )}
       </div>
-      <div className="atlas-section grow h-fit max-h-full overflow-scroll">
+      <div className="w-[85%] atlas-section h-fit max-h-full overflow-scroll">
         {displayPathology()}
       </div>
     </div>
