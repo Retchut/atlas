@@ -9,3 +9,7 @@ body {
 button {
   @apply rounded-lg hover:bg-active-bg;
 }
+
+.button-link {
+  @apply rounded-md hover:bg-active-bg;
+}

@@ -11,6 +11,9 @@ function Atlas() {
   return (
     <div className="w-screen h-screen flex p-4">
       <div className="mr-2">
+        <div className="my-2 atlas-section button-link text-center text-2xl">
+          <a href="/">Voltar</a>
+        </div>
         <Selector
           category={category}
           openCategories={openCategories}
