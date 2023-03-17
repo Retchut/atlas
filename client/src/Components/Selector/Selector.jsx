@@ -47,7 +47,7 @@ function Selector(props) {
 
   return (
     <div className="h-full">
-      <ul className="atlas-section h-fit max-h-full px-1 pb-1 max-w-xs">
+      <ul className="atlas-section h-fit max-h-full px-1 pb-1 max-w-xs overflow-hidden">
         {MenuData.map((entry, index) => (
           <SelectorItem item={entry} key={`${entry.title}-${index}`} />
         ))}
