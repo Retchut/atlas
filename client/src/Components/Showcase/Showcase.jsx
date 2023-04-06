@@ -4,7 +4,7 @@ import { categoryMap } from "../../Data/CategoryMap.js";
 
 function Showcase(props) {
   const { category } = props;
-  const [state, setState] = useState({ apiResponse: [] });
+  const [apiResponse, setApiResponse] = useState([]);
   const [currentPathologyID, setCurrentPathologyID] = useState(null);
 
   useEffect(() => {
@@ -12,9 +12,9 @@ function Showcase(props) {
       process.env.REACT_APP_SERVER_LOCATION + "atlas/" + categoryMap[category]
     )
       .then((res) => res.json())
-      .then((resData) => setState({ apiResponse: resData }))
+      .then((resData) => setApiResponse(resData))
       .catch(err => console.error(err));
-  }, [state, category]);
+  }, [category]);
 
   function handlePathologyClick(pathologyID) {
     setCurrentPathologyID(pathologyID);
@@ -33,7 +33,7 @@ function Showcase(props) {
       return getPathologyError();
     }
 
-    const pathology = state.apiResponse.find(
+    const pathology = apiResponse.find(
       (item) => item._id === currentPathologyID
     );
     if (typeof pathology == "undefined") {
@@ -46,9 +46,9 @@ function Showcase(props) {
   return (
     <div className="flex gap-2 w-full h-full max-w-screen-2xl">
       <div className="w-36">
-        {state.apiResponse.length !== 0 && (
+        {apiResponse.length !== 0 && (
           <div className="atlas-section min-w-full w-fit h-fit max-h-full">
-            {state.apiResponse.map((pathology, index) => (
+            {apiResponse.map((pathology, index) => (
               <img
                 className="max-w-pathology-thumbnail m-4 rounded-lg cursor-pointer"
                 src={
