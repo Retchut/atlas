@@ -6,7 +6,8 @@ COPY models/ ./models/
 COPY routes/ ./routes/
 COPY scripts/ ./scripts/
 COPY storage/ ./storage/
-COPY .env package.json package-lock.json server.js ./
+COPY package.json package-lock.json server.js ./
+COPY .envDebug ./.env
 # install express app dependencies
 RUN npm install
 ENV PORT = 9000
