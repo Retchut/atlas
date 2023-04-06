@@ -7,7 +7,7 @@ import Selector from "../../Components/Selector/Selector.jsx";
 function Atlas() {
   const [category, setCategory] = useState("");
   const [isLargeScreen, setMediumScreen] = useState(false);
-  const [selectorOpen, setSelectorOpen] = useState(true);
+  const [selectorOpen, setSelectorOpen] = useState(false);
   const [openCategories, setOpenCategories] = useState([]);
   const changeCategory = (newCategory) =>
     category === newCategory ? setCategory("") : setCategory(newCategory);
@@ -29,8 +29,13 @@ function Atlas() {
   return (
     <div className="w-screen h-screen flex p-4">
       {isLargeScreen && (
-        <div className="mr-2">
-          <RxDoubleArrowRight />
+        <div className="h-min atlas-section p-4 m-0">
+          {
+            selectorOpen && <RxDoubleArrowLeft />
+          }
+          {
+            !selectorOpen && <RxDoubleArrowRight />
+          }
         </div>
       )}
       <div className="mr-2 hidden lg:block lg:w-[20%]">
