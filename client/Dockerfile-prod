@@ -3,7 +3,10 @@ FROM node:18-alpine3.15 as build
 WORKDIR /app/frontend
 COPY package*.json /app/
 RUN npm install
-COPY . /app/frontend
+COPY src/ ./src
+COPY public ./public
+COPY package.json package-lock.json tailwind.config.js ./
+COPY .envProd ./.env
 RUN npm run build
 
 # Stage 1, based on NGINX to provide a configuration to be used with react-router
